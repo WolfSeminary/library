@@ -10,11 +10,17 @@ export default function Book ({book}) {
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
       <CardMedia
+          component="img"
+          height="140"
+          image={""}
+          alt="image book"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
+            {/* add info */}
           </Typography>
           <Typography variant="body2" color="text.secondary">
+           {/* add name */}
           </Typography>
         </CardContent>
       </CardActionArea>
