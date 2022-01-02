@@ -17,7 +17,7 @@ export default function Book ({book}) {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {/* add info */}
+            {<BookInfo book={book} ></BookInfo>}
           </Typography>
           <Typography variant="body2" color="text.secondary">
            {/* add name */}
