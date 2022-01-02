@@ -7,20 +7,18 @@ import BookInfo from './BookInfo';
 import {
   Routes
 } from "react-router-dom";
+import BooksStatus from './BooksStatus';
 
 
 function App() {
-  // let location= useLocation();
-  let navigate = useNavigate();
-  const onBookClick = () => {
-    console.log("clicked");
-  navigate("/BookInfo", { replace: true });
-  // return <Navigate to="/BookInfo" state={{ from: location }} />
-
-  }
+const getBooksStatus=()=>{
+console.log("status");
+}
   return (
     <div className="App">
-
+      <div onClick={getBooksStatus} >
+      <BooksStatus />
+      </div>
       <Routes>
         <Route path="/BookInfo" element={<BookInfo />} />
         <Route path="/" element={<Book />} />
