@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export default books(() => {
+export default Books(() => {
 
     useEffect(() => {
         fetch("https://www.googleapis.com/books/v1/volumes?q=Android&&maxResults=40")
