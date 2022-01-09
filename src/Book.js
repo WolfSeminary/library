@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import BookInfo from './BookInfo';
 
-
 export default function Book({ book }) {
   return (
     <Card sx={{ maxWidth: 345 }}>
