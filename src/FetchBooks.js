@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 function FetchBooks() {
     return (
         <>
-            <Button variant="outlined">אחזר ספרים</Button>
+            <Button variant="outlined">Fetch Books</Button>
             <TextField id="outlined-basic" label="enter subject" variant="outlined" />
         </>
     )
