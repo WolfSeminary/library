@@ -9,7 +9,6 @@ export default function BackToBooks() {
       <Button variant="outlined" startIcon={<ArrowBackIcon />}>
       Back to Books
       </Button>
-
     </Stack>
   );
 }
