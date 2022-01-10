@@ -7,8 +7,6 @@ export default function Book({ Book }) {
         console.log("clicked");
         navigate("/BookInfo", { replace: true });}
         return (
-
             <h1 onClick={onBookClick}>book</h1>
         )
-    
 }
