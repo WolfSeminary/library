@@ -1,4 +1,5 @@
-import * as React from 'react';
+import {  useNavigate } from 'react-router-dom';
+import  React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -6,6 +7,13 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
 export default function Book ({book}) {
+    let navigate = useNavigate();
+    const onBookClick = () => {
+        console.log("clicked");
+        navigate("/BookInfo", { replace: true });
+        return (
+            <h1 onClick={onBookClick}>book</h1>
+        )}
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
