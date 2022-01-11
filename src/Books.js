@@ -1,6 +1,5 @@
 import Book from "./Book"
 import React, { useState } from 'react'
-// import * as React from 'react';
 import { experimentalStyled as styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -12,7 +11,6 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
   }));
 const Books = ({books}) => {
-
     return (
         <Box sx={{ justifyContent: "center" }}>
           <Grid container justifyContent="center" spacing={{ xs: 1, md: 3 }} columns={{ xs: 2, sm: 8, md: 10 }}>
@@ -25,4 +23,4 @@ const Books = ({books}) => {
         </Box>
       );
 }
-export default Books
+export default Books;
