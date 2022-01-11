@@ -1,12 +1,10 @@
 import Button from '@mui/material/Button';
 
-const BooksStatus=()=>{
-    
+const BooksStatus=()=>{  
     return(
         <>
       <Button variant="outlined">Library Status</Button>
-
         </>
     )   
 }
-export default BooksStatus
+export default BooksStatus;
