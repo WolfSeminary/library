@@ -1,16 +1,20 @@
-import logo from './logo.svg';
+import {  Route,Routes } from 'react-router-dom';
 import './App.css';
+import Book from './Book';
+import BookInfo from './BookInfo';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
+      <Routes>
+        <Route path="/BookInfo" element={<BookInfo />} />
+        <Route path="/" element={<Book />} />
+      </Routes>
       <header className="App-header">
-  
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-     ddddffff
-          Edit <code>src/App.js</code> and save to reload. Deploy-work!!
-        </p>
+        <h1>Welcome to library</h1>
       </header>
     </div>
   );
