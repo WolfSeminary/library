@@ -1,5 +1,5 @@
 const AppBtn = ({}) => {
-    return ( <input type="button" className={}/> );
+    return ( <input type="button" /> );
 }
  
 export default AppBtn;
