@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 export default function BookInfo({book}) {
   return (
     <Card sx={{ maxWidth: 345 }}>
+      <BackToBooks/>
         <Typography>
         Book Info
         </Typography>
