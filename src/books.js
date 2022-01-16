@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import BooksStatus from './BooksStatus'
 
 export default Books = () => {
-    const [bokks, setBooks] = useState([])
+    const [books, setBooks] = useState([])
 
     const getBooksStatus = () => {
     }
@@ -17,6 +17,7 @@ export default Books = () => {
             <div onClick={getBooksStatus}>
                 <BooksStatus />
             </div>
+            {book.length == 0 && <NoBook />}
         </>
     )
 }
