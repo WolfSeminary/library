@@ -5,6 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import BookInfo from './BookInfo';
 
 export default function Book ({book}) {
     let navigate = useNavigate();
@@ -17,7 +18,7 @@ export default function Book ({book}) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
-      <CardMedia
+        <CardMedia
           component="img"
           height="140"
           image={book.image}
@@ -25,10 +26,10 @@ export default function Book ({book}) {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {/* add info */}
+            <BookInfo book={book}/>
           </Typography>
           <Typography variant="body2" color="text.secondary">
-           {/* add name */}
+            {/* add name */}
           </Typography>
         </CardContent>
       </CardActionArea>
