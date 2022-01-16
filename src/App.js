@@ -14,7 +14,7 @@ function App() {
       </Routes>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>Welcome to library</h1>
+        <h1>Welcome to Library</h1>
       </header>
     </div>
   );
