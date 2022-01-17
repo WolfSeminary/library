@@ -13,7 +13,7 @@ export default function MainBar() {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Library
                     </Typography>
-                    <SearchBooks></SearchBooks>
+                    <SearchBooks/>
                 </Toolbar>
             </AppBar>
         </Box>
