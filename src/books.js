@@ -14,7 +14,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default Books = () => {
-  const [bokks, setBooks] = useState([]);
+  const [books, setBooks] = useState([]);
 
   const getBooksStatus = () => {};
 
