@@ -15,21 +15,27 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default Books = () => {
   const [books, setBooks] = useState([]);
+  const [shouldModalOpen, setShouldModalOpen] = useState();
 
-  const getBooksStatus = () => {};
+  const getBooksStatus = () => {
+    shouldModalOpen(true);
+  };
 
   useEffect(() => {
     fetch(
       "https://www.googleapis.com/books/v1/volumes?q=Android&&maxResults=40"
     )
       .then((res) => res.json())
-      .then(setBooks(res));
+      .then(res => {
+        setBooks(res);
+        setShouldModalOpen(false)
+      });
   }, []);
 
   return (
     <>
       <div onClick={getBooksStatus}>
-        <BooksStatus />
+        {shouldModalOpen && <BooksStatus />}
       </div>
       <Box sx={{ justifyContent: "center" }}>
         <Grid
