@@ -19,7 +19,6 @@ export default function Books() {
   const [serchTerm, setSearchTerm] = useState('')
   const getBooksStatus = () => { };
   const [shouldModalOpen, setShouldModalOpen] = useState();
-
   const getBooksStatus = () => {
     shouldModalOpen(true);
   };
