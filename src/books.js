@@ -8,10 +8,10 @@ import Grid from "@mui/material/Grid";
 import MainBar from "./AppBar ";
 
 const Item = styled(Paper)(({ theme }) => ({
-  ...theme.typography.body2,
-  padding: theme.spacing(2),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
+    ...theme.typography.body2,
+    padding: theme.spacing(2),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
 }));
 
 export default function Books() {
