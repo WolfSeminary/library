@@ -18,7 +18,7 @@ export default Books = () => {
   const [shouldModalOpen, setShouldModalOpen] = useState();
 
   const getBooksStatus = () => {
-    shouldModalOpen = true;
+    shouldModalOpen(true);
   };
 
   useEffect(() => {
