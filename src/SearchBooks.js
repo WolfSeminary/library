@@ -45,7 +45,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-export default function SearchBookss() {
+export default function SearchBooks({ serchTerm, setSearchTerm }) {
+    const onSearch = (e) => {
+        setSearchTerm(e.target.value)
+    }
     return (
         <Search>
             <SearchIconWrapper>
@@ -54,6 +57,7 @@ export default function SearchBookss() {
             <StyledInputBase
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
+                onChange={onSearch}
             />
         </Search>
     );

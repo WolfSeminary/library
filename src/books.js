@@ -5,6 +5,7 @@ import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import MainBar from "./AppBar ";
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -13,21 +14,28 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default Books = () => {
+export default function Books() {
   const [books, setBooks] = useState([]);
+  const [serchTerm, setSearchTerm] = useState('')
 
-  const getBooksStatus = () => {};
+  const getBooksStatus = () => { };
 
   useEffect(() => {
     fetch(
       "https://www.googleapis.com/books/v1/volumes?q=Android&&maxResults=40"
     )
       .then((res) => res.json())
-      .then(setBooks(res));
+      .then(res =>
+        {
+          debugger
+          setBooks(res.items)
+
+        } );
   }, []);
 
   return (
     <>
+      <MainBar serchTerm={serchTerm} setSearchTerm={setSearchTerm} />
       <div onClick={getBooksStatus}>
         <BooksStatus />
       </div>
