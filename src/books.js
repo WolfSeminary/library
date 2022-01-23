@@ -26,7 +26,10 @@ export default Books = () => {
       "https://www.googleapis.com/books/v1/volumes?q=Android&&maxResults=40"
     )
       .then((res) => res.json())
-      .then(setBooks(res), setShouldModalOpen = false);
+      .then(res => {
+        setBooks(res);
+        setShouldModalOpen(false)
+      });
   }, []);
 
   return (
