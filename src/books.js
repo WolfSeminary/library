@@ -18,24 +18,29 @@ export default function Books() {
   const [books, setBooks] = useState([]);
   const [serchTerm, setSearchTerm] = useState('')
   const getBooksStatus = () => { };
+  const [shouldModalOpen, setShouldModalOpen] = useState();
+
+  const getBooksStatus = () => {
+    shouldModalOpen(true);
+  };
+
   useEffect(() => {
     fetch(
       "https://www.googleapis.com/books/v1/volumes?q=Android&&maxResults=40"
     )
       .then((res) => res.json())
-      .then(res =>
-        {
-          debugger
-          setBooks(res.items)
-
-        } );
+      .then(res => {
+        debugger
+        setBooks(res.items)
+        setShouldModalOpen(false)
+      });
   }, []);
 
   return (
     <>
       <MainBar serchTerm={serchTerm} setSearchTerm={setSearchTerm} />
       <div onClick={getBooksStatus}>
-        <BooksStatus />
+        {shouldModalOpen && <BooksStatus />}
       </div>
       <Box sx={{ justifyContent: "center" }}>
         <Grid
