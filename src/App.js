@@ -4,6 +4,7 @@ import Book from './Book';
 import BookInfo from './BookInfo';
 import logo from "./logo.svg";
 import "./App.css";
+import BooksStatusModal from './BooksStatusModal';
 
 function App() {
   return (
