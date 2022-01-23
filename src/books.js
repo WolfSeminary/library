@@ -17,9 +17,7 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function Books() {
   const [books, setBooks] = useState([]);
   const [serchTerm, setSearchTerm] = useState('')
-
   const getBooksStatus = () => { };
-
   useEffect(() => {
     fetch(
       "https://www.googleapis.com/books/v1/volumes?q=Android&&maxResults=40"
