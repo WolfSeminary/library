@@ -15,6 +15,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default Books = () => {
     const [books, setBooks] = useState([]);
+    const [newTopic, setNewTopic] = useState('Android');
     const [shouldModalOpen, setShouldModalOpen] = useState();
 
     const getBooksStatus = () => {
@@ -23,7 +24,7 @@ export default Books = () => {
 
     useEffect(() => {
         fetch(
-            "https://www.googleapis.com/books/v1/volumes?q=Android&&maxResults=40"
+            `https://www.googleapis.com/books/v1/volumes?q=${newTopic}&&maxResults=40`
         )
             .then((res) => res.json())
             .then(res => {
