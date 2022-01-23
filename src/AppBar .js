@@ -15,6 +15,7 @@ export default function MainBar() {
                     </Typography>
                     <SearchBooks/>
                 </Toolbar>
+                <FilterBorrowedBooks />
             </AppBar>
         </Box>
     );
