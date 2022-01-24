@@ -14,24 +14,25 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function Books() {
-  const [books, setBooks] = useState([]);
-  const [shouldModalOpen, setShouldModalOpen] = useState();
+export default Books = () => {
+    const [books, setBooks] = useState([]);
+    const [newTopic, setNewTopic] = useState('Android');
+    const [shouldModalOpen, setShouldModalOpen] = useState();
 
   const getBooksStatus = () => {
     shouldModalOpen(true);
   };
 
-  useEffect(() => {
-    fetch(
-      "https://www.googleapis.com/books/v1/volumes?q=Android&&maxResults=40"
-    )
-      .then((res) => res.json())
-      .then(res => {
-        setBooks(res.items.map(book => ({ ...book, status: 'free' })))
-        setShouldModalOpen(false)
-      });
-  }, []);
+    useEffect(() => {
+        fetch(
+            `https://www.googleapis.com/books/v1/volumes?q=${newTopic}&&maxResults=40`
+        )
+            .then((res) => res.json())
+            .then(res => {
+                setBooks(res.items.map(book => ({ ...book, status: 'free' })))
+                setShouldModalOpen(false)
+            });
+    }, []);
 
   return (
     <>
