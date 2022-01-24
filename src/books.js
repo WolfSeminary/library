@@ -5,12 +5,13 @@ import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import FilterBorrowedBooks from "./FilterBorrowedBooks";
 
 const Item = styled(Paper)(({ theme }) => ({
-    ...theme.typography.body2,
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
+  ...theme.typography.body2,
+  padding: theme.spacing(2),
+  textAlign: "center",
+  color: theme.palette.text.secondary,
 }));
 
 export default Books = () => {
@@ -18,9 +19,9 @@ export default Books = () => {
     const [newTopic, setNewTopic] = useState('Android');
     const [shouldModalOpen, setShouldModalOpen] = useState();
 
-    const getBooksStatus = () => {
-        shouldModalOpen(true);
-    };
+  const getBooksStatus = () => {
+    shouldModalOpen(true);
+  };
 
     useEffect(() => {
         fetch(
@@ -33,27 +34,28 @@ export default Books = () => {
             });
     }, []);
 
-    return (
-        <>
-            <div onClick={getBooksStatus}>
-                {shouldModalOpen && <BooksStatus />}
-            </div>
-            <Box sx={{ justifyContent: "center" }}>
-                <Grid
-                    container
-                    justifyContent="center"
-                    spacing={{ xs: 1, md: 3 }}
-                    columns={{ xs: 2, sm: 8, md: 10 }}
-                >
-                    {books.map((book, index) => (
-                        <Grid item xs={2} sm={2.5} md={4} key={index}>
-                            <Item>
-                                <BookInfo book={book} />
-                            </Item>
-                        </Grid>
-                    ))}
-                </Grid>
-            </Box>
-        </>
-    );
-};
+  return (
+    <>
+      <FilterBorrowedBooks books={books} setBooks={setBooks}/>
+      <div onClick={getBooksStatus}>
+        {shouldModalOpen && <BooksStatus />}
+      </div>
+      <Box sx={{ justifyContent: "center" }}>
+        <Grid
+          container
+          justifyContent="center"
+          spacing={{ xs: 1, md: 3 }}
+          columns={{ xs: 2, sm: 8, md: 10 }}
+        >
+          {books.map((book, index) => (
+            <Grid item xs={2} sm={2.5} md={4} key={index}>
+              <Item>
+                <BookInfo book={book} />
+              </Item>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+    </>
+  );
+}
