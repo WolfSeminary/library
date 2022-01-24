@@ -6,7 +6,7 @@ import Switch from '@mui/material/Switch';
 export default function FilterBorrowedBooks({ books,setBooks }) {
   const [booksStatus, setBooksStatus] = useState(books)
   const onFilterChange = (state) => {
-    if (state === 1) {
+    if (state) {
       setBooksStatus(books)
     }
     else {
@@ -18,8 +18,8 @@ export default function FilterBorrowedBooks({ books,setBooks }) {
   
   return (
     <FormGroup>
-      <FormControlLabel onChange={() => onFilterChange(1)} control={<Switch defaultChecked />} label="Get only free books" />
-      <FormControlLabel onChange={() => onFilterChange(2)} disabled control={<Switch />} label="All books" />
+      <FormControlLabel onChange={() => onFilterChange(false)} control={<Switch defaultChecked />} label="Get only free books" />
+      <FormControlLabel onChange={() => onFilterChange(true)} control={<Switch />} label="All books" />
     </FormGroup>
   );
 }
