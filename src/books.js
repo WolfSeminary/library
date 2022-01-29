@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import BooksStatus from "./BooksStatus";
+import Book from "./Book";
 import BookInfo from "./BookInfo";
 import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -7,14 +8,16 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import FilterBorrowedBooks from "./FilterBorrowedBooks";
 
-const Item = styled(Paper)(({ theme }) => ({
-  ...theme.typography.body2,
-  padding: theme.spacing(2),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
 
-export default Books = () => {
+
+const Books = () => {
+  const Item = styled(Paper)(({ theme }) => ({
+    ...theme.typography.body2,
+    padding: theme.spacing(2),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+  }));
+
     const [books, setBooks] = useState([]);
     const [newTopic, setNewTopic] = useState('Android');
     const [shouldModalOpen, setShouldModalOpen] = useState();
@@ -50,7 +53,7 @@ export default Books = () => {
           {books.map((book, index) => (
             <Grid item xs={2} sm={2.5} md={4} key={index}>
               <Item>
-                <BookInfo book={book} />
+                <Book book={book} />
               </Item>
             </Grid>
           ))}
@@ -59,3 +62,4 @@ export default Books = () => {
     </>
   );
 }
+export default Books

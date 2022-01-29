@@ -3,8 +3,19 @@ import { styled } from '@mui/material/styles';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import FormGroup from '@mui/material/FormGroup';
-
+import { useNavigate } from 'react-router-dom';
 const Book = ({ info }) => {
+  let navigate = useNavigate();
+    const onBookClick = () => {
+        console.log("clicked");
+        // navigate("/BookInfo", { replace: true });
+        navigate(`/BookInfo/${info}`);
+
+        //navigate(`/ActionAreaCard/${info}`);
+        return (
+            <h1 onClick={onBookClick}>book</h1>
+        )}
+
   const AntSwitch = styled(Switch)(({ theme }) => ({
     width: 28,
     height: 16,
@@ -49,7 +60,7 @@ const Book = ({ info }) => {
 
   return (
     <>
-      <FormGroup>
+      <FormGroup onClick={onBookClick}>
         <Stack direction="row" spacing={1} alignItems="center">
           <Typography>borrowed</Typography>
           <AntSwitch defaultChecked inputProps={{ 'aria-label': 'ant design' }} />
