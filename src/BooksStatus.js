@@ -1,10 +1,9 @@
 import Button from "@mui/material/Button";
 
-const BooksStatus = (book) => {
-  const [bookStatus,setBookStatus] = useState({id:book.id,status:"free"})
+const BooksStatus = ({onClick}) => {
   return (
     <>
-      <Button variant="outlined">Library Status</Button>
+      <Button variant="outlined" onClick={onClick}>Library Status</Button>
     </>
   );
 };

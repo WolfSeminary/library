@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import BooksStatus from "./BooksStatus";
-import BookInfo from "./BookInfo";
 import { experimentalStyled as styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Grid";
+import { Box, Paper, Grid } from "@mui/material";
 import FilterBorrowedBooks from "./FilterBorrowedBooks";
+import Book from "./Book";
+import FetchBooks from "./FetchBooks";
+import AppBar from "./AppBar";
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -14,32 +14,44 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default Books = () => {
-    const [books, setBooks] = useState([]);
-    const [newTopic, setNewTopic] = useState('Android');
-    const [shouldModalOpen, setShouldModalOpen] = useState();
+export default function Books() {
+  const [books, setBooks] = useState([]);
+  const [shouldModalOpen, setShouldModalOpen] = useState();
+  const [freeBooks, setFreeBooks] = useState([])
+  const [libraryStatus, setLibraryStatus] = useState(false);
+  const [differentTopic, setDifferentTopic] = useState('Android');
+
+  const onTopicChange = (params) => {
+    setDifferentTopic(params);
+  }
+  const onFilterChange = (state) => {
+    setLibraryStatus(!libraryStatus)
+  }
 
   const getBooksStatus = () => {
-    shouldModalOpen(true);
+    setShouldModalOpen(true);
   };
 
-    useEffect(() => {
-        fetch(
-            `https://www.googleapis.com/books/v1/volumes?q=${newTopic}&&maxResults=40`
-        )
-            .then((res) => res.json())
-            .then(res => {
-                setBooks(res.items.map(book => ({ ...book, status: 'free' })))
-                setShouldModalOpen(false)
-            });
-    }, []);
+  useEffect(() => {
+    fetch(
+      `https://www.googleapis.com/books/v1/volumes?q=${differentTopic}&&maxResults=40`
+    )
+      .then((res) => res.json())
+      .then(res => {
+        setBooks(res.items.map(book => ({ ...book, status: 'free' })))
+        // setFreeBooks(books.filter(item=>item.status==="free"))
+        setFreeBooks(books);
+        setShouldModalOpen(false)
+      });
+  }, []);
 
   return (
     <>
-      <FilterBorrowedBooks books={books} setBooks={setBooks}/>
-      <div onClick={getBooksStatus}>
-        {shouldModalOpen && <BooksStatus />}
-      </div>
+      <AppBar />
+      <BooksStatus onClick={getBooksStatus} />
+      <FetchBooks onChange={onTopicChange} />
+      <FilterBorrowedBooks onChange={onFilterChange} />
+      {shouldModalOpen && <div>books status modal</div>}
       <Box sx={{ justifyContent: "center" }}>
         <Grid
           container
@@ -50,7 +62,7 @@ export default Books = () => {
           {books.map((book, index) => (
             <Grid item xs={2} sm={2.5} md={4} key={index}>
               <Item>
-                <BookInfo book={book} />
+                <Book info={book} />
               </Item>
             </Grid>
           ))}

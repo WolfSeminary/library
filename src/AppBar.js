@@ -1,8 +1,4 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+import { Toolbar, Typography, Box, AppBar } from '@mui/material';
 import SearchBooks from './SearchBooks';
 
 export default function MainBar() {
@@ -13,7 +9,7 @@ export default function MainBar() {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Library
                     </Typography>
-                    <SearchBooks/>
+                    <SearchBooks />
                 </Toolbar>
             </AppBar>
         </Box>
