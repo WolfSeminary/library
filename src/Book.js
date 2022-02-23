@@ -1,10 +1,13 @@
-import Switch from '@mui/material/Switch';
-import { styled } from '@mui/material/styles';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
-import FormGroup from '@mui/material/FormGroup';
+import {
+  styled,
+  Switch,
+  Stack,
+  Typography,
+  FormGroup
+} from '@mui/material';
 
-const Book = ({ info }) => {
+
+export default function Book({ info }) {
   const AntSwitch = styled(Switch)(({ theme }) => ({
     width: 28,
     height: 16,
@@ -60,4 +63,4 @@ const Book = ({ info }) => {
   )
 
 }
-export default Book;
+
