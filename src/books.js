@@ -21,6 +21,7 @@ export default function Books() {
   const [libraryStatus, setLibraryStatus] = useState(false);
   const [differentTopic, setDifferentTopic] = useState('Android');
 
+
   const onTopicChange = (params) => {
     setDifferentTopic(params);
   }
@@ -37,8 +38,9 @@ export default function Books() {
       `https://www.googleapis.com/books/v1/volumes?q=${differentTopic}&&maxResults=40`
     )
       .then((res) => res.json())
-      .then(res => {
+      .then(res => {  
         setBooks(res.items.map(book => ({ ...book, status: 'free' })))
+        
         // setFreeBooks(books.filter(item=>item.status==="free"))
         setFreeBooks(books);
         setShouldModalOpen(false)
@@ -60,9 +62,9 @@ export default function Books() {
           columns={{ xs: 2, sm: 8, md: 10 }}
         >
           {books.map((book, index) => (
-            <Grid item xs={2} sm={2.5} md={4} key={index}>
+            <Grid item xs={2} sm={2.5} md={4} key={index} >
               <Item>
-                <Book info={book} />
+                <Book book={book} />
               </Item>
             </Grid>
           ))}
