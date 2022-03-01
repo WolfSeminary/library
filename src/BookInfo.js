@@ -1,5 +1,6 @@
 import { Typography, Card, CardContent } from '@mui/material';
 import BackToBooks from './BackToBooks';
+import Books from './Books';
 
 export default function BookInfo({ book }) {
   return (

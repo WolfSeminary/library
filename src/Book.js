@@ -5,9 +5,14 @@ import {
   Typography,
   FormGroup
 } from '@mui/material';
+import { useNavigate } from "react-router-dom";
+import BookInfo from './BookInfo';
 
-
-export default function Book({ info }) {
+export default function Book({ book }) {
+  let navigate=useNavigate(); 
+  const onBookClick = ()=>{
+    navigate(`/BookInfo/${book.id}`);
+   }
   const AntSwitch = styled(Switch)(({ theme }) => ({
     width: 28,
     height: 16,
@@ -52,7 +57,7 @@ export default function Book({ info }) {
 
   return (
     <>
-      <FormGroup>
+      <FormGroup onClick={onBookClick}>
         <Stack direction="row" spacing={1} alignItems="center">
           <Typography>borrowed</Typography>
           <AntSwitch defaultChecked inputProps={{ 'aria-label': 'ant design' }} />
